@@ -1278,6 +1278,7 @@ export default function Dashboard({ user, refreshKey, onRefresh }) {
                       <label>Instrument</label>
                       <span className="dashBotRowValue">XAUUSD</span>
                     </div>
+                    <span className="dashFieldChevron" aria-hidden="true">›</span>
                   </div>
 
                   <button

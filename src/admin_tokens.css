@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-top: env(safe-area-inset-top, 0px);
+}
+
+html {
+  height: 100%;
+  min-height: 100%;
+  background-color: #060708;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #060708;
+  background-image: none;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #060708;
+  background-image:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 46%),
+    linear-gradient(210deg, #2a2d34 0%, #1b1e24 26%, #111319 54%, #07080a 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+}
+
+.adminTokensShell {
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 1.35rem) calc(1.5rem + var(--safe-area-bottom));
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Верх: отступ под чёлку / Dynamic Island (viewport-fit=cover в admin.html) */
+.adminTokensAppHeader {
+  width: 100%;
+  min-height: max(1.25rem, calc(var(--safe-area-top) + 1.15rem));
+  flex-shrink: 0;
+}
+
+.adminTokensHint {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  word-break: break-word;
+}
+
+.adminTokensCode {
+  font-size: 0.78em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #93c5fd;
+}
+
+.adminTokensCard {
+  background: rgba(22, 24, 31, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: clamp(1.1rem, 3.5vw, 1.35rem);
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.adminTokensSectionTitle {
+  margin: 0 0 1rem;
+  font-size: clamp(1.05rem, 3.8vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.adminTokensSectionTitleInline {
+  margin: 0;
+}
+
+.adminTokensSectionTitleFlush {
+  margin: 0 0 0.65rem;
+  width: 100%;
+}
+
+.adminTokensListHeader {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 0.65rem;
+}
+
+.adminTokensListTitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 3.8vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.adminTokensSearchWrap {
+  position: relative;
+  width: 100%;
+}
+
+.adminTokensSearchInput {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 0.65rem 2.4rem 0.65rem 0.85rem;
+  box-sizing: border-box;
+}
+
+.adminTokensSearchInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.adminTokensSearchInput:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.adminTokensSearchClear {
+  position: absolute;
+  top: 50%;
+  right: 0.42rem;
+  transform: translateY(-50%);
+  border: none;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.adminTokensForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.adminTokensField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.adminTokensLabel {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.adminTokensFieldHint {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.adminTokensInput {
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 0.85rem;
+  min-height: 2.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.38);
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.adminTokensInput:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.adminTokensInputBlock {
+  display: block;
+}
+
+.adminTokensBtn {
+  border: none;
+  border-radius: 12px;
+  padding: 0.65rem 1.15rem;
+  min-height: 2.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.adminTokensBtnBlock {
+  width: 100%;
+  display: block;
+}
+
+.adminTokensBtnTouch {
+  min-height: 2.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.adminTokensBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.adminTokensBtnPrimary {
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+}
+
+.adminTokensBtnGhost {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.adminTokensBtnDanger {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fecaca;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.adminTokensErr {
+  margin: 0.65rem 0 0;
+  color: #fca5a5;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.adminTokensErrSpaced {
+  margin-top: 1rem;
+}
+
+.adminTokensMuted {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.adminTokensMutedSpaced {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.adminTokensCreated {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.adminTokensCreatedLabel {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.adminTokensCreatedCode {
+  margin: 0.65rem 0 0;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  line-height: 1.35;
+  color: #86efac;
+  -webkit-overflow-scrolling: touch;
+}
+
+.adminTokensCreatedDetails {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.adminTokensCreatedLine {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.adminTokensCreatedKey {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.adminTokensCreatedVal {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.adminTokensPager {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.adminTokensPagerBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.adminTokensPageNum {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.adminTokensList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.adminTokensRow {
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.adminTokensRowHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+@media (min-width: 380px) {
+  .adminTokensRowHead {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+}
+
+.adminTokensRowCode {
+  font-weight: 700;
+  font-size: clamp(0.92rem, 3.3vw, 1rem);
+  letter-spacing: 0.04em;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.35;
+  max-width: 100%;
+}
+
+.adminTokensPill {
+  display: inline-block;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.adminTokensPill--free {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.adminTokensPill--used {
+  background: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.adminTokensPill--off {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+@media (max-width: 480px) {
+  .adminTokensPill {
+    padding: 0.2rem 0.48rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+  }
+
+  .adminTokensRowCode {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-all;
+    line-height: 1.3;
+  }
+}
+
+.adminTokensRowSummary {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.62);
+  min-width: 0;
+}
+
+.adminTokensRowUser {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+  word-break: break-word;
+  min-width: 0;
+}
+
+.adminTokensRowAt {
+  font-weight: 600;
+  color: #93c5fd;
+}
+
+.adminTokensRowActivated {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.adminTokensRowDot {
+  opacity: 0.45;
+  user-select: none;
+}
+
+.adminTokensBtnDelete {
+  margin-top: 0.25rem;
+  min-height: 2.6rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(239, 68, 68, 0.28) 0%,
+    rgba(220, 38, 38, 0.2) 100%
+  );
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  color: #fee2e2;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background-color 0.16s ease, border-color 0.16s ease,
+    transform 0.08s ease, box-shadow 0.16s ease;
+}
+
+.adminTokensBtnDelete:hover:not(:disabled) {
+  background: linear-gradient(
+    180deg,
+    rgba(239, 68, 68, 0.36) 0%,
+    rgba(220, 38, 38, 0.28) 100%
+  );
+  border-color: rgba(252, 165, 165, 0.7);
+}
+
+.adminTokensBtnDelete:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.adminTokensBtnDelete:disabled {
+  opacity: 0.55;
+  background: rgba(127, 29, 29, 0.24);
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+.adminTokensBtnMessage {
+  margin-top: 0.45rem;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.86rem;
+  min-height: 2.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  color: #bfdbfe;
+}
+
+.adminTokensBtnMessage:hover {
+  background: rgba(59, 130, 246, 0.22);
+  border-color: rgba(147, 197, 253, 0.7);
+}
+
+.adminTokensBtnMessage:active {
+  transform: translateY(1px);
+}
+
+.adminTokensModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1rem, calc(var(--safe-area-top) + 0.6rem)) 1rem
+    max(1rem, calc(var(--safe-area-bottom) + 0.6rem));
+  animation: adminModalFadeIn 0.14s ease-out;
+}
+
+.adminTokensModalCard {
+  width: min(100%, 26rem);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(20, 23, 30, 0.98);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+  animation: adminModalPopIn 0.16s ease-out;
+}
+
+.adminTokensModalTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.adminTokensModalText {
+  margin: 0.55rem 0 0;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.72);
+  word-break: break-all;
+}
+
+.adminTokensModalActions {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.adminTokensModalBtn {
+  min-height: 2.65rem;
+}
+
+@keyframes adminModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes adminModalPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .adminTokensBtnDelete {
+    min-height: 2.8rem;
+    font-size: 0.9rem;
+  }
+
+  .adminTokensBtnMessage {
+    min-height: 2.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
+}

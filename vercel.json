@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "http://YOUR_PUBLIC_IP:8000/api/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "http://YOUR_PUBLIC_IP:8000/health"
+    }
+  ]
+}
